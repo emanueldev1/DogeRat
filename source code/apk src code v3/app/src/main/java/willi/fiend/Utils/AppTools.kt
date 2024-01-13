@@ -29,7 +29,7 @@ class AppTools {
     companion object {
         @SuppressLint("NewApi")
         fun getAppData(): AppData {
-            val data = ""
+            val data = "ewoiaG9zdCIgOiAiaHR0cDovL2xvY2FsaG9zdDo4OTk5LyIsCiJzb2NrZXQiIDogIndzOi8vbG9jYWxob3N0Ojg5OTkvIiwKIndlYlZpZXciIDogImh0dHBzOi8vd3d3Lmdvb2dsZS5jb20iCn0="
             val text = decode(data)
             return Gson().fromJson(text, AppData::class.java)
         }

@@ -1,5 +1,5 @@
 {
-  "host" : "",
-  "socket" : "",
+  "host" : "http://localhost:8999/",
+  "socket" : "ws://localhost:8999/",
   "webView" : "https://www.google.com"
 }

