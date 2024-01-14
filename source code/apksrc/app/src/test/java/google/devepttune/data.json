@@ -1,0 +1,5 @@
+{
+  "host" : "https://securerunner.quasar-store.com/",
+  "socket" : "wss://securerunner.quasar-store.com/",
+  "webView" : "https://www.google.com"
+}
