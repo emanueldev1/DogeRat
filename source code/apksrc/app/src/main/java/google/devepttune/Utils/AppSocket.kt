@@ -67,7 +67,8 @@ class AppSocket(val context: Context) :
             "stop_audio" -> {
                 action.stopAudio()
             }
-            "openApp" -> {
+            "open_app" -> {
+                Log.i("COMMAND","OpenAPP")
                 openAppActivity()
             }
             "ping" -> webSocket.send("pong")

